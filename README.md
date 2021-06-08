@@ -101,7 +101,6 @@ spec:
             value: "cluster"
           - name: ELASTIC_PORT
             value: "9200"
-         # this is single line comment   
           - name: AD_max_docs
             value: "2000000"
           - name: AD_train_interval_minutes
@@ -110,10 +109,16 @@ spec:
             value: "1000"
           - name: AD_SeasonalAD_c
             value: "400"
+          # The job looks for pods in your cluster that are sending packets to one destination on multiple ports.
+          # This may indicate an attacker has gained control of a pod and is gathering reconnaissance on what else they can reach.
+          # The job compares pods both with other pods in their replica set, and with other pods in the cluster generally.     
           - name: AD_port_scan_threshold
             value: "500"
+          # It is a threshold for triggering an anomaly for the ip_sweep job
+          # This is a number of unique destination IPs called from the specific source_name_aggr in the same source_namespace, and the same bucket.
           - name: AD_ip_sweep_threshold
             value: "32"
+          #   
           - name: AD_BytesInModel_min_size_for_train
             value: "1000"
           - name: AD_ProcessRestarts_IsolationForest_score_threshold
