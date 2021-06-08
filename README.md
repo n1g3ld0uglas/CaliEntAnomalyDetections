@@ -1,8 +1,18 @@
 # CaliEntAnomalyDetections
 Enabling Anomaly Detecion jobs in Calico Enterprise
 
-The below YAML manifest enables all known Job ID's currently configurable in Calico Enterprise
+Before applying the below YAML file, remember to swap-out my cluster name with the name of your own cluster:
+
 ```
+        env:
+          - name: nigel-gke-cluster
+```
+
+The below YAML manifest enables all known Job ID's currently configurable in Calico Enterprise:
+https://docs.tigera.io/v3.7/threat/anomaly-detection/customizing
+
+```
+cat << EOF > ad-jobs-deployment.yaml
 apiVersion: projectcalico.org/v3
 kind: NetworkPolicy
 metadata:
@@ -91,6 +101,7 @@ spec:
             value: "cluster"
           - name: ELASTIC_PORT
             value: "9200"
+         # this is single line comment   
           - name: AD_max_docs
             value: "2000000"
           - name: AD_train_interval_minutes
@@ -148,4 +159,13 @@ spec:
         - name: host-volume
           hostPath:
                   path: /var/log/calico
+EOF                  
 ```
+
+Run the below command to apply the file:
+```
+kubectl apply -f ad-jobs-deployment.yaml
+```
+
+
+
