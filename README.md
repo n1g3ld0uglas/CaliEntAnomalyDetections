@@ -8,6 +8,12 @@ Before applying the below YAML file, remember to swap-out my cluster name with t
           - name: nigel-gke-cluster
 ```
 
+You can do this easily with the below command in your CLI:
+
+```
+sed -i 's/CLUSTER_NAME/nigel-gke-cluster/g' ad-jobs-deployment.yaml
+```
+
 The below YAML manifest enables all known Job ID's currently configurable in Calico Enterprise:
 https://docs.tigera.io/v3.7/threat/anomaly-detection/customizing
 
