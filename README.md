@@ -1,10 +1,15 @@
 # CaliEntAnomalyDetections
-Enabling Anomaly Detecion jobs in Calico Enterprise
+1.1 Enabling Anomaly Detecion jobs in Calico Enterprise
 
 ```
 curl https://docs.tigera.io/manifests/threatdef/ad-jobs-deployment.yaml -O
 ```
 
+1.2 For the managed cluster (ie: Calico Cloud by default):
+
+```
+curl https://docs.tigera.io/manifests/threatdef/ad-jobs-deployment-managed.yaml -O
+```
 
 Before applying the below YAML file, remember to swap-out my cluster name with the name of your own cluster:
 
