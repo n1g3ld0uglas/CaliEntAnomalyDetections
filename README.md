@@ -1,5 +1,8 @@
 # Current Anomaly Detection Workflow
 
+References of all anomaly detection jobs can be found here <br/>
+https://docs.tigera.io/reference/anomaly-detection/all-detectors <br/>
+<br/>
 If your cluster does not have applications, you can use the following storefront application:
 
 ```
