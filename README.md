@@ -34,6 +34,19 @@ Read logs for the chosen AnomalyDetection pod.
 kubectl -n tigera-intrusion-detection logs <active-pod>
 ```
 
+If this fails to generate alerts, run the below command: <br/>
+NB: ```Nmap``` is used to discover hosts and services on a computer network by sending packets and analyzing the responses.
+
+```
+nmap -Pn -r -p 1-1000 $POD_IP
+```
+
+Alernatively, run this command:
+```
+nmap -Pn -sS 10.69.0.30 -p 1-2000
+```
+
+
 # Old Anomaly Detection Workflow
 1.1 Enabling Anomaly Detecion jobs in Calico Enterprise
 
