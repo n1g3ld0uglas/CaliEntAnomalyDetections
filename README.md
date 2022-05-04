@@ -1,5 +1,35 @@
 # Current Anomaly Detection Workflow
 
+If your cluster does not have applications, you can use the following storefront application:
+
+```
+kubectl apply -f https://installer.calicocloud.io/storefront-demo.yaml
+```
+
+Create a GlobalAlert of type AnomalyDetection to indicate which anomaly detector to run.
+```
+kubectl apply -f https://raw.githubusercontent.com/n1g3ld0uglas/CaliEntAnomalyDetections/main/sample-port-scan-globalalert.yaml
+```
+
+Verify that a detection cronjob is created for the GlobalAlert:
+```
+kubectl get cronjobs -n tigera-intrusion-detection -l tigera.io.detector-cycle=detection
+```
+
+Verify that a training cronjob is created for the cluster:
+```
+kubectl get cronjobs -n tigera-intrusion-detection -l tigera.io.detector-cycle=training
+```
+
+Introduce the rogue application to test anomaly detection ```IP_Sweep``` alerts:
+```
+kubectl apply -f https://installer.calicocloud.io/rogue-demo.yaml -n storefront
+```
+
+Read logs for the chosen AnomalyDetection pod.
+```
+kubectl -n tigera-intrusion-detection logs <active-pod>
+```
 
 # Old Anomaly Detection Workflow
 1.1 Enabling Anomaly Detecion jobs in Calico Enterprise
