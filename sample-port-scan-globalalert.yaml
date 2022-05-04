@@ -1,0 +1,11 @@
+apiVersion: projectcalico.org/v3
+ kind: GlobalAlert
+ metadata:
+   name: sample
+ spec:
+   description: "Sample"
+   summary: "Sample port-scan anomaly detection"
+   type: AnomalyDetection
+   detector: 
+     name: port_scan
+   severity: 100
