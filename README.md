@@ -41,6 +41,11 @@ NB: ```Nmap``` is used to discover hosts and services on a computer network by s
 nmap -Pn -r -p 1-1000 $POD_IP
 ```
 
+If you don't have this tool installed, run the below install command:
+```
+sudo apt-get install nmap
+```
+
 Alernatively, run this command:
 ```
 nmap -Pn -sS 10.69.0.30 -p 1-2000
