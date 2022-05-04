@@ -218,5 +218,11 @@ Run the below command to apply the file:
 kubectl apply -f ad-jobs-deployment.yaml
 ```
 
-
-
+Find the pod for the running anomaly detection jobs:
+```
+kubectl get pods -n tigera-intrusion-detection -l app=anomaly-detection
+```
+Check the logs of the running pod:
+```
+kubectl logs ad-jobs-deployment-7b45f659f4-v82gj -n tigera-intrusion-detection | grep ERROR
+```
