@@ -4,8 +4,8 @@ apiVersion: projectcalico.org/v3
    name: sample
  spec:
    description: "Sample"
-   summary: "Sample port-scan anomaly detection"
+   summary: "Sample ip_sweep anomaly detection"
    type: AnomalyDetection
    detector: 
-     name: port_scan
+     name: ip_sweep
    severity: 100
