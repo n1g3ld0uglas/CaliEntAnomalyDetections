@@ -1,4 +1,7 @@
-# CaliEntAnomalyDetections
+# Current Anomaly Detection Workflow
+
+
+# Old Anomaly Detection Workflow
 1.1 Enabling Anomaly Detecion jobs in Calico Enterprise
 
 ```
