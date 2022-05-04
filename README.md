@@ -1,8 +1,9 @@
 # Current Anomaly Detection Workflow
 
 References of all anomaly detection jobs can be found here <br/>
-https://docs.tigera.io/reference/anomaly-detection/all-detectors <br/>
+https://docs.tigera.io/reference/anomaly-detection/all-detectors 
 <br/>
+
 If your cluster does not have applications, you can use the following storefront application:
 
 ```
@@ -51,6 +52,15 @@ Alernatively, run this command:
 nmap -Pn -sS 10.69.0.30 -p 1-2000
 ```
 
+Create a quarantine security policy into the ```security``` tier:
+```
+kubectl apply -f https://raw.githubusercontent.com/n1g3ld0uglas/CaliEntAnomalyDetections/main/quarantine.yaml
+```
+
+Quarantine the rogue workload by relabelling the pod name:
+```
+kubectl label pod <name> -n storefront quarantine=true
+```
 
 # Old Anomaly Detection Workflow
 1.1 Enabling Anomaly Detecion jobs in Calico Enterprise
